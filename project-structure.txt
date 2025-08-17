@@ -1,0 +1,47 @@
+Project Structure:
+
+/home/project/
+├── dist/
+│   ├── assets/
+│   │   └── index-BRBxnO6u.css
+│   ├── index.html
+│   ├── melisa-logo-white.png
+│   └── melisa-logo.png
+├── public/
+│   ├── coffee-icon.svg
+│   ├── melisa-logo.svg
+│   ├── melisa-logo-white.svg
+│   └── melisa-logo.png
+├── src/
+│   ├── components/
+│   │   ├── Footer.tsx
+│   │   ├── LanguageSwitcher.tsx
+│   │   └── Navbar.tsx
+│   ├── context/
+│   │   └── LanguageContext.tsx
+│   ├── pages/
+│   │   ├── About.tsx
+│   │   ├── Blog.tsx
+│   │   ├── BlogPost.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Home.tsx
+│   │   ├── LegalPage.tsx
+│   │   ├── LoyaltyProgram.tsx
+│   │   ├── Menu.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── ProductCategory.tsx
+│   │   ├── Products.tsx
+│   │   ├── ServiceDetails.tsx
+│   │   ├── Services.tsx
+│   │   └── Shop.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── script.js
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.js

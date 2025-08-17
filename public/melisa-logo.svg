@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#51251A">
+    <!-- Melisa text -->
+    <path d="M200 200h800v200H200z"/>
+    <!-- Greek text -->
+    <path d="M150 450h900v100H150z"/>
+    <!-- Decorative line -->
+    <path d="M100 600h1000v20H100z"/>
+    <path d="M550 590a30 30 0 1 1 0 40 30 30 0 1 1 0-40z"/>
+  </g>
+</svg>

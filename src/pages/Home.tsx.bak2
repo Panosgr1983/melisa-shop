@@ -1,0 +1,500 @@
+import { motion } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { 
+  Star, 
+  Award, 
+  Truck, 
+  Heart, 
+  ShoppingCart, 
+  ArrowRight, 
+  Phone, 
+  Mail, 
+  MapPin,
+  ChevronDown,
+  Users,
+  CheckCircle
+} from 'lucide-react'
+
+const Home = () => {
+  // Mock data για τις κατηγορίες
+  const categories = [
+    { slug: 'nuts', name: 'Ξηροί Καρποί' },
+    { slug: 'dried-fruits', name: 'Αποξηραμένα Φρούτα' },
+    { slug: 'chocolates', name: 'Σοκολατάκια' },
+    { slug: 'coffee', name: 'Καφές' },
+    { slug: 'juices', name: 'Χυμοί & Smoothies' }
+  ]
+
+  const getProductsByCategory = (slug) => {
+    // Mock function - επιστρέφει random αριθμό προϊόντων
+    const counts = { 'nuts': 25, 'dried-fruits': 18, 'chocolates': 12, 'coffee': 8, 'juices': 15 }
+    return Array(counts[slug] || 10).fill({})
+  }
+
+  // Mock HeroSlider component
+  const HeroSlider = () => {
+    const [currentSlide, setCurrentSlide] = useState(0)
+    
+    const slides = [
+      {
+        image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+        title: 'Ξηροί Καρποί Premium',
+        subtitle: 'Η καλύτερη ποιότητα για την υγεία σας'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+        title: 'Αποξηραμένα Φρούτα',
+        subtitle: 'Φυσική γλυκιά απόλαυση'
+      }
+    ]
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length)
+      }, 5000)
+      return () => clearInterval(timer)
+    }, [slides.length])
+
+    return (
+      <div className="relative h-screen overflow-hidden">
+        {slides.map((slide, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
+            <div className="absolute inset-0 flex items-center justify-center text-white">
+              <div className="text-center">
+                <motion.h1
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-5xl md:text-7xl font-bold mb-4"
+                >
+                  {slide.title}
+                </motion.h1>
+                <motion.p
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-xl md:text-2xl"
+                >
+                  {slide.subtitle}
+                </motion.p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    )
+  }
+
+  // Δυναμικές επιλεγμένες κατηγορίες με εικόνες
+  const featuredCategories = [
+    { 
+      slug: 'nuts', 
+      image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      title: 'Ξηροί Καρποί',
+      description: 'Macadamia, καρυδόψιχα, pistachio και πολλά άλλα superfoods!'
+    },
+    { 
+      slug: 'dried-fruits', 
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      title: 'Αποξηραμένα Φρούτα',
+      description: 'Βερίκοκα, δαμάσκηνα, χουρμάδες και γεμιστά χουρμάδες.'
+    },
+    { 
+      slug: 'chocolates', 
+      image: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      title: 'Σοκολατάκια',
+      description: 'Χειροποίητες δημιουργίες από εκλεκτή σοκολάτα.'
+    },
+    { 
+      slug: 'coffee', 
+      image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      title: 'Καφές',
+      description: 'Από τον κλασικό ελληνικό μέχρι τα σύγχρονα espresso.'
+    },
+    { 
+      slug: 'juices', 
+      image: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      title: 'Χυμοί & Smoothies',
+      description: 'Φρέσκοι χυμοί και smoothies από επιλεγμένα φρούτα.'
+    }
+  ]
+
+  // Βρίσκουμε τα δεδομένα κατηγοριών από το data system
+  const featuredCategoriesWithData = featuredCategories.map(featuredCat => {
+    const categoryData = categories.find(cat => cat.slug === featuredCat.slug)
+    const productCount = getProductsByCategory(featuredCat.slug).length
+    return {
+      ...featuredCat,
+      name: categoryData?.name || featuredCat.title,
+      productCount,
+      linkTo: `/products/${featuredCat.slug}`
+    }
+  })
+  
+  return (
+    <div>
+      {/* Enhanced Header with smooth scroll */}
+      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="font-bold text-2xl text-amber-800"
+            >
+              melisa
+            </motion.div>
+            
+            <nav className="hidden md:flex space-x-8">
+              <a 
+                href="#home" 
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="text-gray-700 hover:text-amber-600 transition-colors cursor-pointer"
+              >
+                Αρχική
+              </a>
+              <a 
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="text-gray-700 hover:text-amber-600 transition-colors cursor-pointer"
+              >
+                Σχετικά
+              </a>
+              <a 
+                href="#products"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="text-gray-700 hover:text-amber-600 transition-colors cursor-pointer"
+              >
+                Προϊόντα
+              </a>
+              <a 
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="text-gray-700 hover:text-amber-600 transition-colors cursor-pointer"
+              >
+                Επικοινωνία
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Slider */}
+      <div id="home">
+        <HeroSlider />
+      </div>
+
+      {/* About Section - Enhanced με animations */}
+      <section id="about" className="py-16 bg-coffee-light/5">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <h2 className="mb-6 text-3xl font-bold font-serif text-coffee">Η Φιλοσοφία μας</h2>
+            <p className="mb-6 text-lg">
+              Στο melisa, οι ξηροί καρποί δεν είναι απλώς σνακ - είναι superfoods που προσφέρουν ωφέλη για την υγεία σας. 
+              Κάθε προϊόν μας είναι προσεκτικά επιλεγμένο για να σας προσφέρει ένα πολυτελές, ημερήσιο υγιεινό σνακ.
+            </p>
+            <p className="text-lg">
+              Η προτεραιότητά μας είναι η φρεσκάδα και η ποιότητα σε κάθε μπουκιά.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="relative py-24 mb-16 parallax" 
+            style={{backgroundImage: "url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3')", backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center'}}
+          >
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="container mx-auto px-4 relative">
+              <div className="max-w-2xl mx-auto text-center text-white">
+                <motion.h3 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-3xl font-bold font-serif mb-6"
+                >
+                  Ποιοι Είμαστε
+                </motion.h3>
+                <motion.p 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="mb-4 text-lg"
+                >
+                  Το melisa ξεκίνησε το 2015 με ένα όραμα: να προσφέρουμε στους πελάτες μας τα καλύτερα προϊόντα, συνδυάζοντας την παράδοση με τη σύγχρονη αισθητική και ποιότητα.
+                </motion.p>
+                <motion.p 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="mb-4 text-lg"
+                >
+                  Η ομάδα μας αποτελείται από έμπειρους επαγγελματίες με πάθος για την ποιότητα και την εξυπηρέτηση. Κάθε μέλος της ομάδας μας είναι αφοσιωμένο στο να προσφέρει την καλύτερη δυνατή εμπειρία στους πελάτες μας.
+                </motion.p>
+                <motion.p 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  viewport={{ once: true }}
+                  className="text-lg"
+                >
+                  Επιλέγουμε προσεκτικά τους προμηθευτές μας και συνεργαζόμαστε μόνο με τους καλύτερους παραγωγούς, διασφαλίζοντας ότι κάθε προϊόν που προσφέρουμε πληροί τα υψηλότερα πρότυπα ποιότητας.
+                </motion.p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-coffee-light/20 rounded-lg p-12"
+          >
+            <h3 className="text-2xl font-bold font-serif text-coffee text-center mb-12">Οι Αξίες μας</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-coffee text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8" />
+                </div>
+                <h4 className="text-xl font-bold mb-2">Ποιότητα</h4>
+                <p>Επιλέγουμε και προσφέρουμε μόνο τα καλύτερα προϊόντα, χωρίς συμβιβασμούς στην ποιότητα.</p>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-coffee text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h4 className="text-xl font-bold mb-2">Εξυπηρέτηση Πελατών</h4>
+                <p>Η άριστη εξυπηρέτηση των πελατών μας είναι στο επίκεντρο κάθε μας δραστηριότητας.</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Categories Section - Enhanced */}
+      <section id="products" className="py-16 categories-section">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="mb-12 text-4xl font-bold text-center font-serif text-coffee">Επιλεγμένες Κατηγορίες</h2>
+            <p className="text-center mb-12 text-lg">Ανακαλύψτε νέες αλλά και αγαπημένες γευστικές απολαύσεις!</p>
+            
+            <div className="text-center mb-8">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  // Simulate navigation
+                  console.log('Navigate to /products')
+                }}
+                className="inline-block px-6 py-3 bg-coffee text-white rounded-full font-semibold shadow-md hover:bg-coffee-dark transition duration-300"
+              >
+                Δείτε τον κατάλογο μας
+              </motion.button>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5">
+            {featuredCategoriesWithData.map((category, index) => (
+              <motion.div
+                key={category.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer"
+                onClick={() => {
+                  // Simulate navigation
+                  console.log(`Navigate to ${category.linkTo}`)
+                }}
+              >
+                <div className="relative">
+                  <img 
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-coffee hover:text-coffee-dark font-medium">
+                      Δείτε περισσότερα →
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {category.productCount} προϊόντα
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Enhanced με χάρτη */}
+      <section id="contact" className="py-20 bg-coffee text-white" style={{backgroundImage: "url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3')", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <div className="container mx-auto px-4 text-center relative z-10" style={{background: 'rgba(139, 69, 19, 0.9)', padding: '3rem', borderRadius: '1rem'}}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="mb-6 text-3xl font-bold font-serif">Επισκεφθείτε μας</h2>
+            <p className="max-w-2xl mx-auto mb-8">
+              Ελάτε στο κατάστημά μας και ανακαλύψτε την ποιότητα των προϊόντων μας.
+            </p>
+            <div className="space-y-4 mb-8">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center space-x-2"
+              >
+                <MapPin size={20} />
+                <p>Αγίας Ζώνης 1Α</p>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center space-x-2"
+              >
+                <span>📍</span>
+                <p>Κυψέλη, Αθήνα 11363</p>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center space-x-2"
+              >
+                <Phone size={20} />
+                <p>211 407 3640</p>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center space-x-2"
+              >
+                <Mail size={20} />
+                <p>info@melisanuts.gr</p>
+              </motion.div>
+            </div>
+          </motion.div>
+          
+          {/* Enhanced Google Maps */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-8"
+          >
+            <div className="overflow-hidden rounded-lg shadow-lg h-80 max-w-4xl mx-auto border-4 border-white/20">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.1234567890123!2d23.7234567890123!3d37.9876543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd1234567890%3A0x1234567890abcdef!2sAgia%20Zonis%201A%2C%20Kypseli%2C%20Athens%20113%2063%2C%20Greece!5e0!3m2!1sen!2sgr!4v1234567890123!5m2!1sen!2sgr"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="melisa Store Location - Αγίας Ζώνης 1Α, Κυψέλη, Αθήνα 11363"
+              ></iframe>
+            </div>
+            <div className="mt-4 text-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://maps.google.com/?q=Αγίας+Ζώνης+1Α,+Κυψέλη,+Αθήνα+11363', '_blank')}
+                className="px-6 py-3 bg-white text-coffee rounded-full font-semibold shadow-md hover:bg-gray-50 transition-all duration-300"
+              >
+                Δείτε στον χάρτη
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Back to Top Button */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => {
+          document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
+        }}
+        className="fixed bottom-8 right-8 w-12 h-12 bg-coffee text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-40 hover:bg-coffee-dark"
+      >
+        <ChevronDown size={24} className="transform rotate-180" />
+      </motion.button>
+    </div>
+  )
+}
+
+export default Home

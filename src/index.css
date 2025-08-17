@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cream text-coffee-dark;
+}
+
+.container {
+  @apply px-4 mx-auto max-w-7xl;
+}
+
+/* Enhanced button styling with proper padding */
+.btn {
+  @apply px-8 py-4 font-medium rounded-md transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-coffee text-white hover:bg-coffee-dark shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-coffee-light/20 text-coffee hover:bg-coffee-light/40;
+}
+
+/* Improved dropdown styling */
+.dropdown-menu {
+  @apply absolute left-0 mt-1 bg-white rounded-lg shadow-lg py-3 z-50 border border-gray-100;
+  min-width: 16rem;
+}
+
+.dropdown-item {
+  @apply block px-6 py-3 text-sm text-coffee-dark hover:bg-coffee-light/10 hover:text-coffee transition-colors;
+}
+
+/* Better spacing for navigation items */
+.nav-item {
+  @apply px-4 py-2 rounded-md transition-colors hover:bg-coffee-light/10;
+}
+
+/* Improved mobile menu styling */
+.mobile-nav-item {
+  @apply px-4 py-3 rounded-md transition-colors hover:bg-coffee-light/10;
+}
+
+/* Enhanced form controls */
+.form-control {
+  @apply px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent;
+}
+
+/* Better card styling */
+.card {
+  @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow;
+}
+
+.card-body {
+  @apply p-6;
+}
+
+/* Improved product grid */
+.product-grid {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.product-menu {
+  @apply space-y-4;
+}
+
+.product-menu-item {
+  @apply flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow;
+}
+
+/* Language switcher improvements */
+.language-switcher {
+  @apply flex items-center space-x-1 bg-coffee-light/10 rounded-lg p-1;
+}
+
+.language-button {
+  @apply px-4 py-2 text-sm font-medium rounded-md transition-all duration-200;
+}
+
+.language-button.active {
+  @apply bg-coffee text-white shadow-sm;
+}
+
+.language-button.inactive {
+  @apply text-coffee hover:bg-coffee-light/20;
+}
+
+/* Parallax Effect */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
