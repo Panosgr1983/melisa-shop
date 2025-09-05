@@ -52,6 +52,24 @@ const HeroSlider = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
+  // Smooth-scroll to an element by id, compensating for sticky header height
+  const scrollToWithOffset = (id: string, extraOffset: number = 0) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Try to detect a sticky/fixed header to subtract its height
+    const header =
+      (document.querySelector('header.sticky, header.fixed') as HTMLElement | null) ||
+      (document.querySelector('header') as HTMLElement | null);
+
+    const headerHeight = header?.offsetHeight ?? 0;
+
+    const y =
+      el.getBoundingClientRect().top + window.scrollY - headerHeight - extraOffset;
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  };
+
   return (
     <section className="relative h-screen overflow-hidden">
       <AnimatePresence mode="wait">
@@ -122,12 +140,7 @@ const HeroSlider = () => {
             transition={{ duration: 0.8, delay: 1.1 }}
           >
             <button 
-              onClick={() => {
-                const element = document.getElementById('products')
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' })
-                }
-              }}
+              onClick={() => scrollToWithOffset('products', 8)}
               className="inline-block px-8 py-4 font-medium text-white bg-coffee hover:bg-coffee-dark rounded-md transition-colors"
             >
               Ανακαλύψτε τα Προϊόντα μας
