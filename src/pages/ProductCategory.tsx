@@ -39,6 +39,8 @@ const ProductCategory = () => {
     }
     return 0
   })
+
+  const productCountText = products.length === 0 ? 'Κανένα προϊόν' : products.length === 1 ? '1 προϊόν' : `${products.length} προϊόντα`;
   
   if (loading) {
     return (
@@ -78,7 +80,7 @@ const ProductCategory = () => {
         {/* Filters and Controls */}
         <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
           <div className="flex items-center space-x-4">
-            <span className="font-medium text-gray-600">{products.length} προϊόντα</span>
+            <span className="font-medium text-gray-600">{productCountText}</span>
             
             {/* View Mode Toggle */}
             <div className="flex items-center bg-coffee-light/10 rounded-lg p-1">
@@ -129,7 +131,7 @@ const ProductCategory = () => {
             {sortedProducts.map((product, index) => (
               <motion.div
                 key={product.slug}
-                className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="relative max-[540px]:pb-16 flex flex-col md:flex-row items-center md:items-start p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -138,12 +140,12 @@ const ProductCategory = () => {
                   <img 
                     src={product.image} 
                     alt={product.title} 
-                    className="object-cover w-24 h-24 mr-6 rounded-lg hover:scale-105 transition-transform duration-300"
+                    className="object-cover w-24 h-24 mx-auto md:mx-0 mr-0 md:mr-6 rounded-lg hover:scale-105 transition-transform duration-300 shrink-0"
                   />
                 </Link>
-                <div className="flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div>
+                <div className="flex-grow w-full">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
+                    <div className="min-w-0 text-center md:text-left">
                       <Link to={`/product/${product.slug}`}>
                         <h3 className="text-xl font-bold text-coffee mb-2 hover:text-coffee-dark transition-colors">
                           {product.title}
@@ -154,10 +156,10 @@ const ProductCategory = () => {
                         <p className="text-sm text-gray-500">{product.quantity}</p>
                       )}
                     </div>
-                    <div className="text-right ml-6">
+                    <div className="order-last md:order-none flex justify-center md:justify-end mt-4 md:mt-0 w-full max-[540px]:absolute max-[540px]:bottom-4 max-[540px]:left-1/2 max-[540px]:-translate-x-1/2">
                       <Link
                         to={`/product/${product.slug}`}
-                        className="px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
+                        className="inline-block whitespace-nowrap px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
                       >
                         Περισσότερα
                       </Link>

@@ -106,7 +106,7 @@ const Products = () => {
             {sortedProducts.map((product, index) => (
               <motion.div
                 key={product.slug}
-                className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="flex flex-col sm:flex-row items-start sm:items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -114,10 +114,10 @@ const Products = () => {
                 <img 
                   src={product.image} 
                   alt={product.title} 
-                  className="object-cover w-24 h-24 mr-6 rounded-lg"
+                  className="object-cover w-24 h-24 sm:mr-6 rounded-lg mb-4 sm:mb-0 mx-auto sm:mx-0"
                 />
                 <div className="flex-grow">
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <h3 className="text-xl font-bold text-coffee mb-2">{product.title}</h3>
                       <p className="text-gray-600 mb-2 max-w-2xl">{product.description}</p>
@@ -125,7 +125,7 @@ const Products = () => {
                     </div>
                       <Link
                         to={`/product/${product.slug}`}
-                        className="px-4 py-2 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
+                        className="px-4 py-2 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors self-center sm:self-auto mt-2 sm:mt-0"
                       >
                         Περισσότερα
                       </Link>

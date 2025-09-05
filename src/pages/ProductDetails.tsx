@@ -256,7 +256,7 @@ const ProductDetails = () => {
                     <img
                       src={relatedProduct.image}
                       alt={relatedProduct.title}
-                      className="object-cover w-full h-48 hover:scale-105 transition-transform duration-300"
+                      className="object-contain w-full h-48 p-2 bg-white transition-transform duration-300 hover:scale-105"
                     />
                   </Link>
                   <div className="p-4">
@@ -268,7 +268,7 @@ const ProductDetails = () => {
                     <p className="mb-3 text-sm text-gray-600 line-clamp-2">
                       {relatedProduct.description}
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex justify-center">
                       <Link
                         to={`/product/${relatedProduct.slug}`}
                         className="px-3 py-2 text-sm text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
