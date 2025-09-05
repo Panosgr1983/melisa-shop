@@ -237,7 +237,7 @@ const ProductDetails = () => {
           </motion.div>
         </div>
 
-        {/* Related Products */}
+          {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className="mt-16">
             <h2 className="mb-8 text-2xl font-bold text-center font-serif text-coffee">
@@ -250,7 +250,7 @@ const ProductDetails = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  className="flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 >
                   <Link to={`/product/${relatedProduct.slug}`}>
                     <img
@@ -259,16 +259,18 @@ const ProductDetails = () => {
                       className="object-contain w-full h-48 p-2 bg-white transition-transform duration-300 hover:scale-105"
                     />
                   </Link>
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col flex-1">
                     <Link to={`/product/${relatedProduct.slug}`}>
                       <h3 className="mb-2 font-bold hover:text-coffee transition-colors">
                         {relatedProduct.title}
                       </h3>
                     </Link>
-                    <p className="mb-3 text-sm text-gray-600 line-clamp-2">
-                      {relatedProduct.description}
-                    </p>
-                    <div className="flex justify-center">
+                    <div className="flex-grow">
+                      <p className="mb-3 text-sm text-gray-600 line-clamp-2">
+                        {relatedProduct.description}
+                      </p>
+                    </div>
+                    <div className="flex justify-center mt-auto">
                       <Link
                         to={`/product/${relatedProduct.slug}`}
                         className="px-3 py-2 text-sm text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
