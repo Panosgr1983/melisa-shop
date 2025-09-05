@@ -150,6 +150,7 @@ const Home = () => {
                   <Link 
                     to={category.linkTo}
                     className="text-coffee hover:text-coffee-dark"
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     Δείτε περισσότερα →
                   </Link>
@@ -178,7 +179,7 @@ const Home = () => {
           <div className="mt-8">
             <div className="overflow-hidden rounded-lg shadow-md h-64 max-w-2xl mx-auto">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.2123801949656!2d23.71580731531837!3d37.94294797972721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3f9bffcf01%3A0x3e0dce8e58812705!2sLeof.%20Eleftheriou%20Venizelou%2045%2C%20Nea%20Smirni%20171%2021!5e0!3m2!1sen!2sgr!4v1651234567890!5m2!1sen!2sgr" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.139948504963!2d23.73746911531862!3d37.9934649797217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd1aa5b1e4fb%3A0x6a8b0f7dd7a4b!2sAgias%20Zonis%201A%2C%20Athina%20113%2061!5e0!3m2!1sel!2sgr!4v1700000000000!5m2!1sel!2sgr" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

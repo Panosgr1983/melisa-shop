@@ -54,32 +54,18 @@ const Navbar = () => {
             Σχετικά
           </button>
           
-          <NavLink 
+          <NavLink
             to="/products"
             className="px-4 py-2 text-coffee-dark hover:text-coffee transition-colors rounded-md hover:bg-coffee-light/10"
           >
             Κατάλογος
           </NavLink>
           
-          <NavLink 
-            to="/services" 
-            className="px-4 py-2 text-coffee-dark hover:text-coffee transition-colors rounded-md hover:bg-coffee-light/10"
-          >
-            Υπηρεσίες
-          </NavLink>
-          
-          <NavLink 
-            to="/ideas" 
-            className="px-4 py-2 text-coffee-dark hover:text-coffee transition-colors rounded-md hover:bg-coffee-light/10"
-          >
-            Ιδέες
-          </NavLink>
-          
           <button 
             onClick={() => scrollToSection('contact')}
             className="px-4 py-2 text-coffee-dark hover:text-coffee transition-colors rounded-md hover:bg-coffee-light/10"
           >
-            Επικοινωνία
+            Βρείτε μας
           </button>
         </nav>
 
@@ -110,34 +96,18 @@ const Navbar = () => {
             </button>
             
             <NavLink 
-              to="/products" 
-              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors" 
-              onClick={toggleMenu}
+              to="/products"
+              onClick={() => setIsOpen(false)}
+              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors text-left"
             >
               Κατάλογος
-            </NavLink>
-            
-            <NavLink 
-              to="/services" 
-              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors" 
-              onClick={toggleMenu}
-            >
-              Υπηρεσίες
-            </NavLink>
-            
-            <NavLink 
-              to="/ideas" 
-              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors" 
-              onClick={toggleMenu}
-            >
-              Ιδέες
             </NavLink>
             
             <button 
               onClick={() => scrollToSection('contact')}
               className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors text-left" 
             >
-              Επικοινωνία
+              Βρείτε μας
             </button>
           </div>
         </div>
