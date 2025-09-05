@@ -5,7 +5,7 @@ export const breakfastMixes = [
     description: 'Συνδυασμός βρώμης, ξηρών καρπών και αποξηραμένων φρούτων.',
     price: 4.50,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955278/classic-breakfast-mix_v6f4z0.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955278/classic-breakfast-mix_v6f4z0.png'
   },
   {
     title: 'Μίξ Πρωινού Τροπικό',
@@ -13,7 +13,7 @@ export const breakfastMixes = [
     description: 'Εξωτικό μείγμα με καρύδα, ανανά και μάνγκο.',
     price: 5.20,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955273/tropical-breakfast-mix_zxoe7k.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955273/tropical-breakfast-mix_zxoe7k.png'
   },
   {
     title: 'Μίξ Πρωινού Πρωτεΐνης',
@@ -21,7 +21,7 @@ export const breakfastMixes = [
     description: 'Πλούσιο σε πρωτεΐνες με αμύγδαλα, καρύδια και σπόρους.',
     price: 6.80,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955276/protein-breakfast-mix_iwuk7x.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955276/protein-breakfast-mix_iwuk7x.png'
   },
   {
     title: 'Μίξ Πρωινού Σπόροι & Σταφίδες',
@@ -29,7 +29,7 @@ export const breakfastMixes = [
     description: 'Μείγμα βρώμης, κολοκυθόσπορων, ηλιόσπορων και σταφίδων.',
     price: 4.90,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955276/seeds-raisins-breakfast-mix_yzeoax.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955276/seeds-raisins-breakfast-mix_yzeoax.png'
   },
   {
     title: 'Μίξ Πρωινού Καρύδια & Σταφίδες',
@@ -37,7 +37,7 @@ export const breakfastMixes = [
     description: 'Μείγμα με καρύδια, κολοκυθόσπορους και αποξηραμένα φρούτα.',
     price: 5.60,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955269/walnuts-raisins-breakfast-mix_fnygki.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955269/walnuts-raisins-breakfast-mix_fnygki.png'
   },
   {
     title: 'Μίξ Πρωινού Βρώμη & Αμύγδαλο',
@@ -45,7 +45,7 @@ export const breakfastMixes = [
     description: 'Βρώμη με αμυγδαλόφυλλα, σπόρους και σταφίδες.',
     price: 5.20,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955270/oat-almond-breakfast-mix_eaz2al.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955270/oat-almond-breakfast-mix_eaz2al.png'
   },
   {
     title: 'Μίξ Πρωινού Τροπικό Φρούτο',
@@ -53,7 +53,7 @@ export const breakfastMixes = [
     description: 'Μείγμα με αποξηραμένα κομμάτια μπανάνας και άλλα φρούτα.',
     price: 5.80,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955268/tropical-fruit-breakfast-mix_i9axof.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955268/tropical-fruit-breakfast-mix_i9axof.png'
   },
   {
     title: 'Μίξ Πρωινού Με Σοκολάτα',
@@ -61,7 +61,7 @@ export const breakfastMixes = [
     description: 'Μείγμα με κομμάτια σοκολάτας και ξηρούς καρπούς.',
     price: 6.00,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955279/chocolate-breakfast-mix_yz7dmm.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955279/chocolate-breakfast-mix_yz7dmm.png'
   },
   {
     title: 'Μίξ Πρωινού Με Μέλι',
@@ -69,6 +69,6 @@ export const breakfastMixes = [
     description: 'Γλυκό μείγμα με μέλι και αποξηραμένα φρούτα.',
     price: 5.50,
     categorySlug: 'breakfast-mixes',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754955281/honey-breakfast-mix_t0qqwa.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754955281/honey-breakfast-mix_t0qqwa.png'
   }
 ]

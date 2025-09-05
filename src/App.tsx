@@ -15,7 +15,7 @@ import IdeasPost from './pages/IdeasPost'
 import LegalPage from './pages/LegalPage'
 import LoyaltyProgram from './pages/LoyaltyProgram'
 import NotFound from './pages/NotFound'
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -39,6 +39,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <SpeedInsights />
     </div>
   )
 }

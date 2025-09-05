@@ -4,3 +4,60 @@ build/
 .vscode/
 .DS_Store
 .env
+
+# dependencies
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# builds
+dist/
+build/
+.out/
+.next/
+.vercel/
+.tmp/
+temp/
+.cache/
+.nyc_output/
+
+# env & misc
+.env*
+.DS_Store
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.pid
+*.seed
+*.coveragerc
+*.tgz
+*.tar.gz
+
+# test & coverage
+coverage/
+.jest/
+.cypress/
+playwright-report/
+test-results/
+
+# IDE & editor settings
+.vscode/
+.idea/
+*.iml
+
+# OS specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Git & credentials
+.git-credentials
+*.pem
+*.key
+*.crt
+*.pfx
