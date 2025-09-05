@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiGrid, FiList } from 'react-icons/fi'
@@ -6,8 +6,23 @@ import { categories, getProductsByCategory, allProducts } from '../data'
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('all')
-  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('menu') // Default to menu view
+  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('grid') // Default to grid when viewing all categories
   const [sortBy, setSortBy] = useState('name')
+
+  // Ensure we always land at the top when visiting the page
+  useEffect(() => {
+    // Use 'auto' to avoid any smooth-scroll offset issues on initial mount
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
+  // Switch view mode automatically depending on selected category
+  useEffect(() => {
+    if (activeCategory === 'all') {
+      setViewMode('grid');
+    } else {
+      setViewMode('menu');
+    }
+  }, [activeCategory]);
 
   // Get all products or filtered by category
   const filteredProducts = activeCategory === 'all' 
@@ -136,7 +151,7 @@ const Products = () => {
           </div>
         ) : (
           /* Grid View - Category Cards Style */
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6 md:mt-8">
             {categories.map((category, index) => {
               const categoryProducts = getProductsByCategory(category.slug)
               const previewProducts = categoryProducts.slice(0, 3)
@@ -191,7 +206,7 @@ const Products = () => {
                     </div>
                     <Link 
                       to={`/products/${category.slug}`}
-                      className="inline-block px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
+                      className="block w-max mx-auto px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
                     >
                       Δείτε Όλα ({categoryProducts.length})
                     </Link>
@@ -212,4 +227,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default Products 

@@ -8,28 +8,28 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754335684/xiroi-karpoi_h2mp8k.webp',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754335684/xiroi-karpoi_h2mp8k.webp',
       title: 'Ξηροί Καρποί',
       subtitle: 'Superfoods για υγιεινό σνακ',
       description: 'Ανακαλύψτε τη δύναμη των ξηρών καρπών - φυσικές πηγές ενέργειας και θρεπτικών συστατικών'
     },
     {
       id: 2,
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754337081/dried-fruits_w768eb.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754337081/dried-fruits_w768eb.jpg',
       title: 'Αποξηραμένα Φρούτα',
       subtitle: 'Φυσική γλυκύτητα',
       description: 'Βερίκοκα, δαμάσκηνα, χουρμάδες και πολλά άλλα - η φύση στην πιο γλυκιά της μορφή'
     },
     {
       id: 3,
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754336208/_TSO9666_bswegm_c_pad_b_gen_fill_ar_16_9_zyhvwi.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754336208/_TSO9666_bswegm_c_pad_b_gen_fill_ar_16_9_zyhvwi.jpg',
       title: 'Σοκολατάκια',
       subtitle: 'Χειροποίητες απολαύσεις',
       description: 'Εκλεκτές σοκολάτες και γλυκές δημιουργίες για κάθε στιγμή'
     },
     {
       id: 4,
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1751193284/_TSO9759_nlyfxv.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193284/_TSO9759_nlyfxv.jpg',
       title: 'Καφές',
       subtitle: 'Αρώματα και γεύσεις',
       description: 'Από τον κλασικό ελληνικό μέχρι τα σύγχρονα espresso - κάθε φλιτζάνι μια εμπειρία'

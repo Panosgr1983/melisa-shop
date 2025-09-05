@@ -175,7 +175,7 @@ const ProductCategory = () => {
             {sortedProducts.map((product, index) => (
               <motion.div
                 key={product.slug}
-                className="overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -185,11 +185,11 @@ const ProductCategory = () => {
                     <img 
                       src={product.image} 
                       alt={product.title} 
-                      className="object-cover w-full h-48 hover:scale-105 transition-transform duration-300"
+                      className="object-cover w-full h-48 transition-transform duration-300"
                     />
                   </Link>
                 </div>
-                <div className="p-6">
+                <div className="flex flex-col flex-grow p-6">
                   <Link to={`/product/${product.slug}`}>
                     <h3 className="mb-2 text-lg font-bold hover:text-coffee transition-colors">
                       {product.title}
@@ -199,7 +199,7 @@ const ProductCategory = () => {
                   {product.quantity && (
                     <p className="mb-3 text-xs text-gray-500">{product.quantity}</p>
                   )}
-                  <div className="flex items-center justify-between">
+                  <div className="mt-auto flex items-center justify-center">
                     <Link
                       to={`/product/${product.slug}`}
                       className="px-4 py-2 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"

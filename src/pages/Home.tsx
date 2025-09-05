@@ -8,25 +8,25 @@ const Home = () => {
   const featuredCategories = [
     { 
       slug: 'nuts', 
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1751193327/_TSO3646_n3vcei.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193327/_TSO3646_n3vcei.jpg',
       title: 'Ξηροί Καρποί',
       description: 'Macadamia, καρυδόψιχα, pistachio και πολλά άλλα superfoods!'
     },
     { 
       slug: 'dried-fruits', 
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1751193520/_TSO9924_z44ad2.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193520/_TSO9924_z44ad2.jpg',
       title: 'Αποξηραμένα Φρούτα',
       description: 'Βερίκοκα, δαμάσκηνα, χουρμάδες και γεμιστά χουρμάδες.'
     },
     { 
       slug: 'sweets', 
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1751193259/_TSO9638_eq1g8t.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193259/_TSO9638_eq1g8t.jpg',
       title: 'Γλυκά',
       description: 'Χειροποίητες δημιουργίες από εκλεκτά υλικά.'
     },
     { 
       slug: 'coffee', 
-      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/v1754338244/_TSO9807_no9lni_e_gen_restore_c_pad_b_gen_fill_ar_1_1_zkousg.jpg',
+      image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754338244/_TSO9807_no9lni_e_gen_restore_c_pad_b_gen_fill_ar_1_1_zkousg.jpg',
       title: 'Καφές',
       description: 'Από τον κλασικό ελληνικό μέχρι τα σύγχρονα espresso.'
     },

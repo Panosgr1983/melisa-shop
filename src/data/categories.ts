@@ -2,7 +2,7 @@ export const categories = [
   { name: 'Ξηροί Καρποί', slug: 'nuts' },
   { name: 'Αποξηραμένα Φρούτα', slug: 'dried-fruits' },
   { name: 'Μέλια', slug: 'honey' },
-  { name: 'Seeds', slug: 'seeds' },
+  { name: 'Σπόροι', slug: 'seeds' },
   { name: 'Κρασιά', slug: 'wines' },
   { name: 'Energy Bars', slug: 'energy-bars' },
   { name: 'Βούτυρα', slug: 'butters' },

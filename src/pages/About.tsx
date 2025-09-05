@@ -31,7 +31,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <img 
-                src="https://res.cloudinary.com/duvtwanvc/image/upload/v1751193354/_TSO8842_i9lizk.jpg" 
+                src="https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193354/_TSO8842_i9lizk.jpg" 
                 alt="Melisa shop interior" 
                 className="w-full h-full rounded-lg shadow-lg object-cover"
               />

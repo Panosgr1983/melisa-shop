@@ -9,17 +9,24 @@ const Navbar = () => {
     setIsOpen(!isOpen)
   }
 
+  const getStickyHeaderOffset = () => {
+    const header = document.querySelector('header.sticky') as HTMLElement | null
+    return header ? header.offsetHeight : 0
+  }
+
   const scrollToSection = (sectionId: string) => {
-    // First navigate to home page if not already there
+    // If we're not on the homepage, navigate there with hash
     if (window.location.pathname !== '/') {
       window.location.href = `/#${sectionId}`
       return
     }
-    
-    // If already on home page, scroll to section
+
+    // If already on home page, scroll to section taking sticky header into account
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const offset = getStickyHeaderOffset() + 8 // small extra gap
+      const y = element.getBoundingClientRect().top + window.pageYOffset - offset
+      window.scrollTo({ top: y, behavior: 'smooth' })
     }
     setIsOpen(false)
   }
@@ -47,12 +54,12 @@ const Navbar = () => {
             Σχετικά
           </button>
           
-          <button 
-            onClick={() => scrollToSection('products')}
+          <NavLink 
+            to="/products"
             className="px-4 py-2 text-coffee-dark hover:text-coffee transition-colors rounded-md hover:bg-coffee-light/10"
           >
-            Προϊόντα
-          </button>
+            Κατάλογος
+          </NavLink>
           
           <NavLink 
             to="/services" 
@@ -102,12 +109,13 @@ const Navbar = () => {
               Σχετικά
             </button>
             
-            <button 
-              onClick={() => scrollToSection('products')}
-              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors text-left" 
+            <NavLink 
+              to="/products" 
+              className="px-4 py-3 text-coffee-dark hover:text-coffee hover:bg-coffee-light/10 rounded-md transition-colors" 
+              onClick={toggleMenu}
             >
-              Προϊόντα
-            </button>
+              Κατάλογος
+            </NavLink>
             
             <NavLink 
               to="/services" 
