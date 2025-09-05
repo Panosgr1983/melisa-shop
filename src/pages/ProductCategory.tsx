@@ -202,6 +202,7 @@ const ProductCategory = () => {
                   <div className="mt-auto flex items-center justify-center">
                     <Link
                       to={`/product/${product.slug}`}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className="px-4 py-2 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
                     >
                       Περισσότερα

@@ -16,11 +16,14 @@ import LegalPage from './pages/LegalPage'
 import LoyaltyProgram from './pages/LoyaltyProgram'
 import NotFound from './pages/NotFound'
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import ScrollToHash from './components/ScrollToHash'
+import ScrollToTop from './components/ScrollToTop'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -39,6 +42,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollToHash />
       <SpeedInsights />
     </div>
   )
