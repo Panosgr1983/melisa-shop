@@ -32,10 +32,6 @@ const ProductCategory = () => {
   const sortedProducts = [...products].sort((a, b) => {
     if (sortBy === 'name') {
       return a.title.localeCompare(b.title)
-    } else if (sortBy === 'price-low') {
-      return a.price - b.price
-    } else if (sortBy === 'price-high') {
-      return b.price - a.price
     }
     return 0
   })
@@ -118,8 +114,6 @@ const ProductCategory = () => {
               className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
             >
               <option value="name">Αλφαβητικά</option>
-              <option value="price-low">Τιμή (Χαμηλή &rarr; Υψηλή)</option>
-              <option value="price-high">Τιμή (Υψηλή &rarr; Χαμηλή)</option>
             </select>
           </div>
         </div>
@@ -136,7 +130,7 @@ const ProductCategory = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Link to={`/product/${product.slug}`}>
+                <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   <img 
                     src={product.image} 
                     alt={product.title} 
@@ -146,7 +140,7 @@ const ProductCategory = () => {
                 <div className="flex-grow w-full">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
                     <div className="min-w-0 text-center md:text-left">
-                      <Link to={`/product/${product.slug}`}>
+                      <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <h3 className="text-xl font-bold text-coffee mb-2 hover:text-coffee-dark transition-colors">
                           {product.title}
                         </h3>
@@ -159,6 +153,7 @@ const ProductCategory = () => {
                     <div className="order-last md:order-none flex justify-center md:justify-end mt-4 md:mt-0 w-full max-[540px]:absolute max-[540px]:bottom-4 max-[540px]:left-1/2 max-[540px]:-translate-x-1/2">
                       <Link
                         to={`/product/${product.slug}`}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         className="inline-block whitespace-nowrap px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"
                       >
                         Περισσότερα
@@ -181,7 +176,7 @@ const ProductCategory = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <div className="relative">
-                  <Link to={`/product/${product.slug}`}>
+                  <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <img 
                       src={product.image} 
                       alt={product.title} 
@@ -190,7 +185,7 @@ const ProductCategory = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col flex-grow p-6">
-                  <Link to={`/product/${product.slug}`}>
+                  <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <h3 className="mb-2 text-lg font-bold hover:text-coffee transition-colors">
                       {product.title}
                     </h3>

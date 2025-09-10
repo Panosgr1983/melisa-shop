@@ -7,7 +7,6 @@ import { categories, getProductsByCategory, allProducts } from '../data'
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [viewMode, setViewMode] = useState<'menu' | 'grid'>('grid') // Default to grid when viewing all categories
-  const [sortBy, setSortBy] = useState('name')
 
   // Ensure we always land at the top when visiting the page
   useEffect(() => {
@@ -30,12 +29,7 @@ const Products = () => {
     : getProductsByCategory(activeCategory)
 
   // Sort products
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (sortBy === 'name') {
-      return a.title.localeCompare(b.title)
-    }
-    return 0
-  })
+  const sortedProducts = [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
     <div className="py-12">
@@ -70,7 +64,7 @@ const Products = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
+        <div className="flex flex-wrap items-center justify-start mb-8 gap-4">
           <div className="flex items-center space-x-4">
             <span className="font-medium text-gray-600">{sortedProducts.length} προϊόντα</span>
             
@@ -99,18 +93,6 @@ const Products = () => {
                 <FiGrid size={18} />
               </button>
             </div>
-          </div>
-          
-          <div className="flex items-center space-x-4">
-            <label htmlFor="sort" className="font-medium text-gray-600">Ταξινόμηση:</label>
-            <select 
-              id="sort" 
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
-            >
-              <option value="name">Αλφαβητικά</option>
-            </select>
           </div>
         </div>
         
