@@ -79,8 +79,10 @@ const Footer = () => {
             <p>Αγίας Ζώνης 1</p>
             <p>Κυψέλη, Αθήνα</p>
             <p>211 407 3640</p>
-            <p>info@melisanuts.gr</p>
-            <p className="mt-2 text-coffee-light">melisanuts.gr</p>
+            {/*
+                  <p>info@melisanuts.gr</p>
+                  <p className="mt-2 text-coffee-light">melisanuts.gr</p>
+            */}
           </div>
         </div>
         
