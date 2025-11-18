@@ -24,12 +24,56 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
-            <h3 className="mb-4 text-xl font-bold font-serif">Ωράριο</h3>
-            <p>Δευτέρα - Σάββατο: 7:00 - 21:00</p>
-            <p>Κυριακή: 9:00 - 20:00</p>
-          </div>
+          {/*
+                <div>
+                <h3 className="mb-4 text-xl font-bold font-serif">Ωράριο</h3>
+                <p>Δευτέρα:   7:00-21:00</p>
+                <p>Τρίτη:     7:00-21:00</p>
+                <p>Τετάρτη:   7:00-21:00</p>
+                <p>Πέμπτη:    7:00-21:00</p>
+                <p>Παρασκευή: 7:00-21:00</p>
+                <p>Σάββατο:   7:00-21:00</p>
+                <p>Κυριακή:   9:00-20:00</p>
+                </div>
+          */}
           
+<div>
+  <h3 className="mb-4 text-xl font-bold font-serif">Ωράριο</h3>
+  <table className="w-full">
+    <tbody>
+      <tr>
+        <td className="pr-4 font-semibold">Δευτέρα:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Τρίτη:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Τετάρτη:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Πέμπτη:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Παρασκευή:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Σάββατο:</td>
+        <td>7:00-21:00</td>
+      </tr>
+      <tr>
+        <td className="pr-4 font-semibold">Κυριακή:</td>
+        <td>9:00-20:00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
           <div>
             <h3 className="mb-4 text-xl font-bold font-serif">Επικοινωνία</h3>
             <p>Αγίας Ζώνης 1</p>
@@ -41,7 +85,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 mt-8 text-center border-t border-coffee-light">
-          <p>&copy; 2024 melisa. Με επιφύλαξη παντός δικαιώματος.</p>
+          <p>&copy; 2025 melisa. Με επιφύλαξη παντός δικαιώματος.</p>
         </div>
       </div>
     </footer>
