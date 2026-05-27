@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import ProductImage from '../components/ProductImage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const About = () => {
+  usePageTitle('Σχετικά')
   return (
     <div className="py-12">
       <div className="container">

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { motion } from 'framer-motion'
 
 const NotFound = () => {
+  usePageTitle('Η σελίδα δεν βρέθηκε')
   return (
     <div className="py-20">
       <div className="container">

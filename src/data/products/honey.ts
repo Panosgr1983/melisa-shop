@@ -1,4 +1,6 @@
-export const honey = [
+import type { Product } from '../../types/product'
+
+export const honey: Product[] = [
   {
     title: "Μέλι Πεύκου",
     slug: "μeλι-πεyκου",

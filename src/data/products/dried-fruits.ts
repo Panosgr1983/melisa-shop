@@ -1,4 +1,6 @@
-export const driedFruits = [
+import type { Product } from '../../types/product'
+
+export const driedFruits: Product[] = [
   {
     title: 'Ανανάς Αποξηραμένος Χωρίς Ζάχαρη',
     slug: 'dry-pineapple-sugarless',

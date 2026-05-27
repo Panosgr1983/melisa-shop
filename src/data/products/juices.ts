@@ -1,4 +1,6 @@
-export const juices = [
+import type { Product } from '../../types/product'
+
+export const juices: Product[] = [
   {
     title: 'Πορτοκάλι',
     slug: 'orange-juice',

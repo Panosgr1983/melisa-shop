@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const Contact = () => {
+  usePageTitle('Επικοινωνία')
   return (
     <div className="py-12">
       <div className="container">

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const LoyaltyProgram = () => {
+  usePageTitle('Πρόγραμμα Πίστης')
   
   return (
     <div className="py-12">

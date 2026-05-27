@@ -1,27 +1,29 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FiGrid, FiList } from 'react-icons/fi'
+import { FiGrid, FiList, FiSearch } from 'react-icons/fi'
 import { getProductsByCategory, getCategoryBySlug } from '../data'
 import ProductImage from '../components/ProductImage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const ProductCategory = () => {
+  usePageTitle('Κατηγορία')
   const { category } = useParams<{ category: string }>()
   const [products, setProducts] = useState<any[]>([])
   const [categoryData, setCategoryData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('name')
-  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('menu') // Default to menu view
+  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('menu')
   
   useEffect(() => {
     if (category) {
       setLoading(true)
       
-      // Get category data
       const cat = getCategoryBySlug(category)
       setCategoryData(cat)
+      if (cat) document.title = `${cat.name} | MELISA`
       
-      // Get products for this category
       const categoryProducts = getProductsByCategory(category)
       setProducts(categoryProducts)
       
@@ -29,15 +31,22 @@ const ProductCategory = () => {
     }
   }, [category])
   
+  // Filter by search
+  const filteredProducts = products.filter(p => {
+    if (!searchQuery) return true
+    const q = searchQuery.toLowerCase()
+    return p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q)
+  })
+
   // Sort products
-  const sortedProducts = [...products].sort((a, b) => {
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'name') {
       return a.title.localeCompare(b.title)
     }
     return 0
   })
 
-  const productCountText = products.length === 0 ? 'Κανένα προϊόν' : products.length === 1 ? '1 προϊόν' : `${products.length} προϊόντα`;
+  const productCountText = filteredProducts.length === 0 ? 'Κανένα προϊόν' : filteredProducts.length === 1 ? '1 προϊόν' : `${filteredProducts.length} προϊόντα`;
   
   if (loading) {
     return (
@@ -76,7 +85,17 @@ const ProductCategory = () => {
         
         {/* Filters and Controls */}
         <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="relative">
+              <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+              <input
+                type="text"
+                placeholder="Αναζήτηση..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent w-48 sm:w-64"
+              />
+            </div>
             <span className="font-medium text-gray-600">{productCountText}</span>
             
             {/* View Mode Toggle */}

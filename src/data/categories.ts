@@ -1,4 +1,6 @@
-export const categories = [
+import type { Category, Subcategory } from '../types/product'
+
+export const categories: Category[] = [
   { name: 'Ξηροί Καρποί', slug: 'nuts' },
   { name: 'Αποξηραμένα Φρούτα', slug: 'dried-fruits' },
   { name: 'Μέλια', slug: 'honey' },
@@ -13,7 +15,7 @@ export const categories = [
   { name: 'Μίξ Πρωινού', slug: 'breakfast-mixes' },
 ]
 
-export const subcategories = [
+export const subcategories: Subcategory[] = [
   { name: 'Ψημένοι', slug: 'roasted', categorySlug: 'nuts' },
   { name: 'Ωμοί', slug: 'raw', categorySlug: 'nuts' },
   { name: 'Με Ώσμωση', slug: 'osmosis', categorySlug: 'dried-fruits' },

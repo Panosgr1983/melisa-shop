@@ -1,4 +1,6 @@
-export const teas = [
+import type { Product } from '../../types/product'
+
+export const teas: Product[] = [
   {
     title: 'Πράσινο Τσάι',
     slug: 'green-tea',

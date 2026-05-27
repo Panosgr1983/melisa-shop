@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import { FiStar, FiShare2 } from 'react-icons/fi'
 import { getProductBySlug, getCategoryBySlug, getProductsByCategory } from '../data'
 import ProductImage from '../components/ProductImage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const ProductDetails = () => {
+  usePageTitle('Προϊόν')
   const { slug } = useParams<{ slug: string }>()
   const [product, setProduct] = useState<any>(null)
   const [category, setCategory] = useState<any>(null)
@@ -17,17 +19,15 @@ const ProductDetails = () => {
     if (slug) {
       setLoading(true)
       
-      // Get product data
       const productData = getProductBySlug(slug)
       
       if (productData) {
         setProduct(productData)
+        document.title = `${productData.title} | MELISA`
         
-        // Get category data
         const categoryData = getCategoryBySlug(productData.categorySlug)
         setCategory(categoryData)
         
-        // Get related products (same category, excluding current product)
         const categoryProducts = getProductsByCategory(productData.categorySlug)
         const related = categoryProducts
           .filter(p => p.slug !== slug)

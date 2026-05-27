@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const Services = () => {
+  usePageTitle('Υπηρεσίες')
   return (
     <div className="py-12">
       <div className="container">

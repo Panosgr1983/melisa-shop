@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const IdeasPost = () => {
+  usePageTitle('Ιδέα')
   const { slug } = useParams<{ slug: string }>()
   const [post, setPost] = useState<any>(null)
   const [loading, setLoading] = useState(true)

@@ -1,4 +1,6 @@
-export const energyBars = [
+import type { Product } from '../../types/product'
+
+export const energyBars: Product[] = [
   {
     title: 'Μπάρα Ενέργειας Αμύγδαλο & Χουρμάς',
     slug: 'almond-date-energy-bar',

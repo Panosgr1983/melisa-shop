@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const LegalPage = () => {
+  usePageTitle('Νομικά')
   const { page } = useParams<{ page: string }>()
   const [pageData, setPageData] = useState<any>(null)
   const [loading, setLoading] = useState(true)

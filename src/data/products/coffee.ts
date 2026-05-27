@@ -1,4 +1,6 @@
-export const coffees = [
+import type { Product } from '../../types/product'
+
+export const coffees: Product[] = [
   {
     title: 'Espresso',
     slug: 'espresso',

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const ServiceDetails = () => {
+  usePageTitle('Υπηρεσία')
   const { service } = useParams<{ service: string }>()
   const [serviceData, setServiceData] = useState<any>(null)
   const [loading, setLoading] = useState(true)

@@ -1,35 +1,40 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FiGrid, FiList } from 'react-icons/fi'
-import { categories, getProductsByCategory, allProducts } from '../data'
+import { FiGrid, FiList, FiSearch } from 'react-icons/fi'
+import { categories, subcategories, getProductsByCategory, allProducts } from '../data'
 import ProductImage from '../components/ProductImage'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const Products = () => {
+  usePageTitle('Κατάλογος')
   const [activeCategory, setActiveCategory] = useState('all')
-  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('grid') // Default to grid when viewing all categories
+  const [activeSubcategory, setActiveSubcategory] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [viewMode, setViewMode] = useState<'menu' | 'grid'>('grid')
 
-  // Ensure we always land at the top when visiting the page
   useEffect(() => {
-    // Use 'auto' to avoid any smooth-scroll offset issues on initial mount
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, []);
 
-  // Switch view mode automatically depending on selected category
   useEffect(() => {
     if (activeCategory === 'all') {
       setViewMode('grid');
     } else {
       setViewMode('menu');
     }
+    setActiveSubcategory('')
   }, [activeCategory]);
 
-  // Get all products or filtered by category
-  const filteredProducts = activeCategory === 'all' 
-    ? allProducts 
-    : getProductsByCategory(activeCategory)
+  const categorySubcategories = subcategories.filter(s => s.categorySlug === activeCategory)
 
-  // Sort products
+  const filteredProducts = (activeCategory === 'all' ? allProducts : getProductsByCategory(activeCategory))
+    .filter(p => {
+      if (activeSubcategory && p.subcategorySlug !== activeSubcategory) return false
+      if (searchQuery && !p.title.toLowerCase().includes(searchQuery.toLowerCase()) && !p.description.toLowerCase().includes(searchQuery.toLowerCase())) return false
+      return true
+    })
+
   const sortedProducts = [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
@@ -64,12 +69,35 @@ const Products = () => {
           ))}
         </div>
 
-        {/* Controls */}
-        <div className="flex flex-wrap items-center justify-start mb-8 gap-4">
-          <div className="flex items-center space-x-4">
+        {/* Search & Controls */}
+        <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="relative">
+              <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+              <input
+                type="text"
+                placeholder="Αναζήτηση προϊόντων..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent w-48 sm:w-64"
+              />
+            </div>
+
+            {categorySubcategories.length > 0 && (
+              <select
+                value={activeSubcategory}
+                onChange={e => setActiveSubcategory(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
+              >
+                <option value="">Όλες οι υποκατηγορίες</option>
+                {categorySubcategories.map(s => (
+                  <option key={s.slug} value={s.slug}>{s.name}</option>
+                ))}
+              </select>
+            )}
+
             <span className="font-medium text-gray-600">{sortedProducts.length} προϊόντα</span>
-            
-            {/* View Mode Toggle */}
+
             <div className="flex items-center bg-coffee-light/10 rounded-lg p-1">
               <button
                 onClick={() => setViewMode('menu')}

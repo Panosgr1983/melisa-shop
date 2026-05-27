@@ -2,9 +2,11 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import HeroSlider from '../components/HeroSlider'
 import ProductImage from '../components/ProductImage'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { categories, getProductsByCategory } from '../data'
 
 const Home = () => {
+  usePageTitle('')
   // Δυναμικές επιλεγμένες κατηγορίες με εικόνες
   const featuredCategories = [
     { 
@@ -131,7 +133,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {featuredCategoriesWithData.map((category, index) => (
               <motion.div
                 key={category.slug}

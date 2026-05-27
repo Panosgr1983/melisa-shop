@@ -1,4 +1,6 @@
-export const wines = [
+import type { Product } from '../../types/product'
+
+export const wines: Product[] = [
     {
         "title": "Santero Moscato d'Asti",
         "slug": "santero-moscato-dasti",
