@@ -1,43 +1,7 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real application, you would send the form data to a server here
-    console.log('Form submitted:', formData)
-    setIsSubmitted(true)
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
-    
-    // Reset submission status after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
-  }
-  
   return (
     <div className="py-12">
       <div className="container">
@@ -100,94 +64,6 @@ const Contact = () => {
               </div>
             </div>
           </motion.div>
-          
-          {/* Contact Form */}
-          {/*
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="p-6 bg-white rounded-lg shadow-md">
-              <h2 className="mb-6 text-2xl font-bold font-serif text-coffee">Στείλτε μας Μήνυμα</h2>
-              
-              {isSubmitted ? (
-                <div className="p-4 mb-6 text-green-700 bg-green-100 rounded-md">
-                  <p>Το μήνυμά σας στάλθηκε επιτυχώς! Θα επικοινωνήσουμε μαζί σας σύντομα.</p>
-                </div>
-              ) : null}
-              
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block mb-2 font-medium text-gray-700">
-                    Όνομα
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
-                    required
-                  />
-                </div>
-                
-                <div className="mb-4">
-                  <label htmlFor="email" className="block mb-2 font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label htmlFor="subject" className="block mb-2 font-medium text-gray-700">
-                    Θέμα
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor="message" className="block mb-2 font-medium text-gray-700">
-                    Μήνυμα
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 text-white bg-coffee rounded-md hover:bg-coffee-dark focus:outline-none focus:ring-2 focus:ring-coffee focus:ring-offset-2"
-                >
-                  Αποστολή Μηνύματος
-                </button>
-              </form>
-            </div>
-          </motion.div>
-          */}
         </div>
         
         {/* Map */}

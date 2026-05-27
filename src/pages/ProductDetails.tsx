@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FiArrowLeft, FiStar, FiHeart, FiShare2, FiShoppingCart } from 'react-icons/fi'
+import { FiStar, FiShare2 } from 'react-icons/fi'
 import { getProductBySlug, getCategoryBySlug, getProductsByCategory } from '../data'
 import ProductImage from '../components/ProductImage'
 
@@ -11,9 +11,7 @@ const ProductDetails = () => {
   const [category, setCategory] = useState<any>(null)
   const [relatedProducts, setRelatedProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [selectedImage] = useState(0)
 
   useEffect(() => {
     if (slug) {
@@ -72,11 +70,6 @@ const ProductDetails = () => {
 
   // Create multiple images for the product (using the same image with different parameters for demo)
   const productImages = [product.image]
-
-  const handleAddToCart = () => {
-    // Add to cart logic here
-    console.log(`Added ${quantity} of ${product.title} to cart`)
-  }
 
   const handleShare = () => {
     if (navigator.share) {

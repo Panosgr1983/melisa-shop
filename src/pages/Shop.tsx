@@ -6,28 +6,22 @@ import { allProducts, categories } from '../data'
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [sortBy, setSortBy] = useState('name')
-  const [priceRange, setPriceRange] = useState([0, 50])
   const [searchQuery, setSearchQuery] = useState('')
   
-  // Filter products based on active category, price range, and search query
+  // Filter products based on active category and search query
   const filteredProducts = allProducts.filter(product => {
     const matchesCategory = activeCategory === 'all' || product.categorySlug === activeCategory
-    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1]
     const matchesSearch = searchQuery === '' || 
       product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.description.toLowerCase().includes(searchQuery.toLowerCase())
     
-    return matchesCategory && matchesPrice && matchesSearch
+    return matchesCategory && matchesSearch
   })
   
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'name') {
       return a.title.localeCompare(b.title)
-    } else if (sortBy === 'price-low') {
-      return a.price - b.price
-    } else if (sortBy === 'price-high') {
-      return b.price - a.price
     }
     return 0
   })
@@ -108,8 +102,6 @@ const Shop = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent"
               >
                 <option value="name">Αλφαβητικά</option>
-                <option value="price-low">Τιμή (Χαμηλή → Υψηλή)</option>
-                <option value="price-high">Τιμή (Υψηλή → Χαμηλή)</option>
               </select>
             </div>
           </div>
@@ -149,8 +141,8 @@ const Shop = () => {
                       </h3>
                     </Link>
                     <p className="mb-2 text-sm text-gray-600 line-clamp-2">{product.description}</p>
-                    {product.quantity && (
-                      <p className="mb-2 text-xs text-gray-500">{product.quantity}</p>
+                    {(product as any).quantity && (
+                      <p className="mb-2 text-xs text-gray-500">{(product as any).quantity}</p>
                     )}
                     <div className="flex items-center justify-between">
                       <Link
@@ -172,7 +164,6 @@ const Shop = () => {
                 <button 
                   onClick={() => {
                     setActiveCategory('all')
-                    setPriceRange([0, 50])
                     setSearchQuery('')
                   }}
                   className="px-4 py-2 text-white bg-coffee rounded-md hover:bg-coffee-dark transition-colors"

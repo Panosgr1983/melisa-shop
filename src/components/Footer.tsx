@@ -1,5 +1,4 @@
 import { FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (

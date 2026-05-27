@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import HeroSlider from '../components/HeroSlider'
 import ProductImage from '../components/ProductImage'
-import { categories, getFeaturedProducts, getProductsByCategory } from '../data'
+import { categories, getProductsByCategory } from '../data'
 
 const Home = () => {
   // Δυναμικές επιλεγμένες κατηγορίες με εικόνες
