@@ -85,7 +85,7 @@ export const driedFruits = [
     description: 'Γεμιστά σύκα με καρύδι για αυθεντική παραδοσιακή γεύση.',
     categorySlug: 'dried-fruits',
     subcategorySlug: 'natural-drying',
-    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754839815/stuffed-walnut-figs_mps8tm.png'
+    image: 'https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1754840459/stuffed-walnut-figs_mps8tm_c_pad_b_gen_fill_ar_1_1_jrr4bl_c_crop_w_1200_h_1200_ar_1_1_g_auto_djs2h3.png'
   },
   {
     title: 'Σύκα με Πεκάν',

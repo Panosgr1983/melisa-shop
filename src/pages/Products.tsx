@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiGrid, FiList } from 'react-icons/fi'
 import { categories, getProductsByCategory, allProducts } from '../data'
+import ProductImage from '../components/ProductImage'
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -108,7 +109,7 @@ const Products = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <img 
+                <ProductImage 
                   src={product.image} 
                   alt={product.title} 
                   className="object-cover w-24 h-24 sm:mr-6 rounded-lg mb-4 sm:mb-0 mx-auto sm:mx-0"
@@ -153,7 +154,7 @@ const Products = () => {
                 >
                   <div className="relative h-64">
                     {previewProducts.length > 0 && (
-                      <img
+                      <ProductImage
                         src={previewProducts[0].image}
                         alt={category.name}
                         className="object-cover w-full h-full"

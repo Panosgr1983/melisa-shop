@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import HeroSlider from '../components/HeroSlider'
+import ProductImage from '../components/ProductImage'
 import { categories, getFeaturedProducts, getProductsByCategory } from '../data'
 
 const Home = () => {
@@ -139,7 +140,7 @@ const Home = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
-                <img 
+                <ProductImage 
                   src={category.image}
                   alt={category.title}
                   className="w-full h-48 object-cover"

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiGrid, FiList } from 'react-icons/fi'
 import { getProductsByCategory, getCategoryBySlug } from '../data'
+import ProductImage from '../components/ProductImage'
 
 const ProductCategory = () => {
   const { category } = useParams<{ category: string }>()
@@ -131,7 +132,7 @@ const ProductCategory = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                  <img 
+                  <ProductImage 
                     src={product.image} 
                     alt={product.title} 
                     className="object-cover w-24 h-24 mx-auto md:mx-0 mr-0 md:mr-6 rounded-lg hover:scale-105 transition-transform duration-300 shrink-0"
@@ -177,7 +178,7 @@ const ProductCategory = () => {
               >
                 <div className="relative">
                   <Link to={`/product/${product.slug}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <img 
+                    <ProductImage 
                       src={product.image} 
                       alt={product.title} 
                       className="object-cover w-full h-48 transition-transform duration-300"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import ProductImage from './ProductImage'
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -82,7 +83,7 @@ const HeroSlider = () => {
           className="absolute inset-0"
         >
           <div className="absolute inset-0 bg-black/50 z-10"></div>
-          <img 
+          <ProductImage 
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
             className="w-full h-full object-cover"

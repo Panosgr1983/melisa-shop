@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ProductImage from '../components/ProductImage'
 
 const About = () => {
   return (
@@ -30,7 +31,7 @@ const About = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <img 
+              <ProductImage 
                 src="https://res.cloudinary.com/duvtwanvc/image/upload/f_auto,q_auto:eco,dpr_auto/v1751193354/_TSO8842_i9lizk.jpg" 
                 alt="Melisa shop interior" 
                 className="w-full h-full rounded-lg shadow-lg object-cover"

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiArrowLeft, FiStar, FiHeart, FiShare2, FiShoppingCart } from 'react-icons/fi'
 import { getProductBySlug, getCategoryBySlug, getProductsByCategory } from '../data'
+import ProductImage from '../components/ProductImage'
 
 const ProductDetails = () => {
   const { slug } = useParams<{ slug: string }>()
@@ -123,7 +124,7 @@ const ProductDetails = () => {
             <div className="space-y-4">
               {/* Main Image */}
               <div className="relative overflow-hidden bg-gray-100 rounded-lg aspect-square">
-                <img
+                <ProductImage
                   src={productImages[selectedImage]}
                   alt={product.title}
                   className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
@@ -253,7 +254,7 @@ const ProductDetails = () => {
                   className="flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 >
                   <Link to={`/product/${relatedProduct.slug}`}>
-                    <img
+                    <ProductImage
                       src={relatedProduct.image}
                       alt={relatedProduct.title}
                       className="object-contain w-full h-48 p-2 bg-white transition-transform duration-300 hover:scale-105"
