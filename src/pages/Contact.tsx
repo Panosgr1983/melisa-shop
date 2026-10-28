@@ -59,9 +59,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="mb-1 font-bold">Ωράριο</h3>
-                  <p className="text-gray-600">Δευτέρα - Παρασκευή: 8πμ - 9μμ</p>
-                  <p className="text-gray-600">Σάββατο: 8πμ - 8μμ</p>
-                  <p className="text-gray-600">Κυριακή: Κλειστά</p>
+                  <p className="text-gray-600">Δευτέρα - Σάββατο: 7:00-21:00</p>
+                  <p className="text-gray-600">Κυριακή: 9:00-20:00</p>
                 </div>
               </div>
             </div>
