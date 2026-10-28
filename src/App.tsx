@@ -9,7 +9,6 @@ import ProductCategory from './pages/ProductCategory'
 import ProductDetails from './pages/ProductDetails'
 import Services from './pages/Services'
 import ServiceDetails from './pages/ServiceDetails'
-import Shop from './pages/Shop'
 import Ideas from './pages/Ideas'
 import IdeasPost from './pages/IdeasPost'
 import LegalPage from './pages/LegalPage'
@@ -32,7 +31,6 @@ function App() {
           <Route path="/product/:slug" element={<ProductDetails />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:service" element={<ServiceDetails />} />
-          <Route path="/shop" element={<Shop />} />
           <Route path="/ideas" element={<Ideas />} />
           <Route path="/ideas/:slug" element={<IdeasPost />} />
           <Route path="/contact" element={<Contact />} />

@@ -86,7 +86,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 mt-8 text-center border-t border-coffee-light">
-          <p>&copy; 2025 melisa. Με επιφύλαξη παντός δικαιώματος.</p>
+          <p>&copy; 2026 melisa. Με επιφύλαξη παντός δικαιώματος.</p>
         </div>
       </div>
     </footer>
