@@ -35,7 +35,7 @@ const Products = () => {
       return true
     })
 
-  const sortedProducts = [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
+  const sortedProducts = […filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
     <div className="py-12">
@@ -76,7 +76,7 @@ const Products = () => {
               <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               <input
                 type="text"
-                placeholder="Αναζήτηση προϊόντων..."
+                placeholder="Αναζήτηση προϊόντων…"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coffee focus:border-transparent w-48 sm:w-64"
@@ -209,7 +209,7 @@ const Products = () => {
                           ))}
                           {categoryProducts.length > 3 && (
                             <p className="text-sm text-coffee font-medium">
-                              ...και {categoryProducts.length - 3} ακόμη προϊόντα
+                              …και {categoryProducts.length - 3} ακόμη προϊόντα
                             </p>
                           )}
                         </div>
