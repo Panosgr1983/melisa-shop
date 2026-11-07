@@ -35,7 +35,7 @@ const Products = () => {
       return true
     })
 
-  const sortedProducts = […filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
+  const sortedProducts = [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
     <div className="py-12">
